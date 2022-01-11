@@ -1,0 +1,97 @@
+body{
+    overflow-x: hidden;
+    background-image: url('https://wallpapercave.com/wp/wp4410743.png');
+    background-size: cover;
+}
+.navbar{
+    background-color: #48cae4;
+}
+.navbar-brand{
+    font: 700 2.5rem 'Dancing Script';
+}
+.form-control:focus{
+    box-shadow: none;
+    outline: none;
+}
+@media screen and (max-width: 463px){
+    body{
+        width: 463px
+    }
+}
+
+.login,.app{
+    margin-top: 80px;
+    width: 380px;
+}
+
+.btn{
+    box-shadow: none !important;
+}
+
+
+.msges::-webkit-scrollbar { 
+    display: none; 
+}
+
+.background{
+    background-image: url('https://www.setaswall.com/wp-content/uploads/2019/08/Whatsapp-Chat-Wallpaper-015-340x550.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 25px;
+}
+.list-item{
+    background-color: #3d405b;
+    max-width: 75%;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.26);
+    border-radius: 10px;
+}
+.name{
+    color: #fca311;
+}
+.msg{
+    color: white;
+}
+
+
+.triangle-right{
+    width: 0;
+    height: 0;
+    border-left: 14px solid #3d405b;
+    border-bottom: 14px solid transparent;
+}
+
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-right: 14px solid #3d405b;
+    border-bottom: 14px solid transparent;
+}
+
+.send-msg{
+    width: 86%;
+    background-color: rgb(172, 169, 169);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+}
+.send-msg:focus{
+    background-color: rgb(172, 169, 169);
+    color: white;
+    outline: none;
+}
+.send-msg::placeholder{
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.icon-btn{
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.26) !important;
+    background-color: rgb(22, 212, 155);
+}
+.icon-btn:hover{
+    background-color: rgb(14, 190, 138);
+}
+.icon{
+    font-size: 0.9rem !important;
+}
