@@ -20,8 +20,14 @@ body{
 }
 
 .login,.app{
-    margin-top: 80px;
     width: 380px;
+}
+
+.login{
+    margin-top: 80px;
+}
+.app{
+    margin-top: 20px;
 }
 
 .btn{
@@ -94,4 +100,15 @@ body{
 }
 .icon{
     font-size: 0.9rem !important;
+}
+
+.user-list{
+    background-color: rgb(85, 85, 85);
+}
+
+.indicator{
+    background-color: rgb(59, 59, 59);
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
 }

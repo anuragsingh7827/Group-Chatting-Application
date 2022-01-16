@@ -36,14 +36,13 @@
                 </div>
             </form>
         </section>
+        <section class="view-members text-center mt-4">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                View Members
+            </button>
+        </section>
+
         <section class="background app mx-auto border p-2 shadow-sm" style="height: 500px">
-            <p class="welcome lead text-center pt-5" style="height: 87%;">
-                Welcome to the group!!
-                <br>
-                Hope you enjoy your best
-                <br>
-                time here with your friends.
-            </p>
             <ul class="msges list-unstyled w-100 overflow-auto px-2" 
                 style="height: 87%;">
             </ul>
@@ -58,6 +57,24 @@
     </main>
 
 
+
+
+
+    <!-- Offcanvas for displaying online users -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Group Members</h5>
+            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled users"></ul>
+        </div>
+    </div>
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
@@ -65,7 +82,7 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
+    <script src="indicator.js"></script>
 </body>
 
 </html>

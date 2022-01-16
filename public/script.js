@@ -1,5 +1,6 @@
 const socket = io();
 $('.app').hide();
+$('.view-members').hide();
 $('.login-input').focus();
 let username = null;
 $('.login-form').submit((e) => {
@@ -12,12 +13,30 @@ $('.login-form').submit((e) => {
     });
 
     $('.login').hide();
+    $('.view-members').show();
     $('.app').show();
     $('.send-msg').focus();
 
-    if(!$('.msges').children().length){
-        $('.msges').hide();
+});
+
+socket.on('current-users',(data) => {
+    $('.users li').remove();
+
+    for(let user in data.users){
+        $('.users').append(`<li class="user-list my-3 p-2 d-flex align-items-center 
+                            justify-content-between rounded-3"
+                                <p class="m-0">${data.users[user]}</p>
+                                <span class="indicator me-2"></span> 
+                            </li>`);
     }
+
+
+    $('.msges').append(`<li class="mt-2">
+                            <p class="bg-secondary text-white 
+                            w-75 mx-auto rounded text-center">
+                                ${data.user} has ${data.status} the group!!
+                            </p>
+                        </li>`);
 
 });
 
@@ -40,11 +59,6 @@ let lastLiUser = null;
 
 socket.on('received-msg', (data) => {
 
-    if(!$('.msges').children().length){
-        $('.welcome').hide();
-        $('.msges').show();
-    }
-
     const liClass = data.user === username ? "justify-content-end" : "justify-content-start";
 
     if(lastLiUser && lastLiUser === data.user){
@@ -57,8 +71,8 @@ socket.on('received-msg', (data) => {
                     </div>
                 </li>`);
 
-        data.user === username ? $('ul li:last-child').addClass('me-3') 
-                                    : $('ul li:last-child').addClass('ms-3');
+        data.user === username ? $('.msges li:last-child').addClass('me-3') 
+                                    : $('.msges li:last-child').addClass('ms-3');
 
 
     }else{
@@ -77,15 +91,15 @@ socket.on('received-msg', (data) => {
                 </li>`);
 
         data.user === username ? $('<div class="triangle-right"></div>')
-                                    .insertAfter('ul li:last-child .list-item')
+                                    .insertAfter('.msges li:last-child .list-item')
                                     : $('<div class="triangle-left"></div>')
-                                        .insertBefore('ul li:last-child .list-item');
+                                        .insertBefore('.msges li:last-child .list-item');
 
 
     }
 
-    $('ul li:last-child').addClass(liClass);
+    $('.msges li:last-child').addClass(liClass);
     
-    $('.msges').scrollTop(1000 * $('.msges').outerHeight());
+    $('.msges').scrollTop(1000000 * $('.msges').outerHeight());
 
 });

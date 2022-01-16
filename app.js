@@ -13,17 +13,29 @@ const users = {};
 
 io.on('connection', (socket) => {
     socket.on('send-user-data', (data) => {
-        users[socket.id] = data.user
-    })
+        users[socket.id] = data.user;
+        io.emit('current-users',{
+            users,
+            status: 'joined',
+            user: data.user
+        });
+    });
     socket.on('send-msg', (data) => {
         io.emit('received-msg',{
             user: users[socket.id],
             msg: data.msg
         });
     });
+    socket.on('disconnect', () => {
+        const user = users[socket.id];
+        delete users[socket.id];
+        io.emit('current-users',{
+            users,
+            status: 'left',
+            user
+        });
+    })
 });
-
-
 
 
 const port = process.env.PORT || 5000;
